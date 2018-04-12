@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<div ng-app="myApp" ng-controller="myCtrl">
+			<p>时间:{{theTime}}</p>
+		</div>-->
+		<hr />
+		<div ng-app="firstApp" ng-controller="firstCtrl">
+			<p>{{name}}</p>
+		</div>
+		<script>
+			/*var app = angular.module("myApp",[]);
+			app.controller("myCtrl",function($scope,$interval){
+				$scope.theTime = new Date().toLocaleTimeString();
+				$interval(function(){
+					$scope.theTime = new Date().toLocaleTimeString();
+				},1000);
+			});*/
+			
+			var firstApp = angular.module("firstApp",[]);
+			firstApp.service('hea',function(){
+				this.myFunc = function(x){
+					return "nihao";
+				}
+			});
+			firstApp.controller("firstCtrl",function($scope,hea){
+				$scope.name = hea.myFunc("hello");
+			});
+		</script>
+	</body>
+</html>

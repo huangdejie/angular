@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/online/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title>AngularJS依赖注入</title>
+	</head>
+	<body>
+		<h2>Angular 简单应用</h2>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<p>输入一个数字:<input type="number" ng-model="numb"/></p>
+			<button ng-click="squa()">X<sub>2</sub></button>
+			<p>结果:{{result}}</p>
+		</div>
+	</body>
+	<script>
+		/*var myapp = angular.module("myApp",[]);
+		myapp.factory("mathService",function(){
+			var factory={};
+			factory.multiply=function(a,b){
+				return a*b;
+			}
+			return factory;
+		});
+		myapp.service('calService',function(mathService){
+			this.square = function(a){
+				return mathService.multiply(a,a);
+			}
+		})*/
+		var myapp = angular.module("myApp",[]);
+		/*myapp.config(function($provide){
+			$provide.provider('mathService',function(){
+				this.$get=function(){
+					var factory = {};
+					factory.multiply = function(a,b){
+						return a*b;
+					}
+					return factory;
+				};
+			});
+		});*/
+		myapp.value('defaultInput',5);
+		myapp.factory('mathService',function(){
+			var factory = {};
+			factory.multiply = function(a,b){
+				return a*b;
+			}
+			return factory;
+		});
+		myapp.service('calService',function(){
+			this.square=function(a){
+				return a*a;
+			}
+		});
+		myapp.controller('myCtrl',function($scope,calService,defaultInput){
+			$scope.numb = defaultInput;
+			$scope.result = calService.square($scope.numb);
+			$scope.squa=function(){
+				$scope.result = calService.square($scope.numb);
+			}
+		});
+	</script>
+</html>

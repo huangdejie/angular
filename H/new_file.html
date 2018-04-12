@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>两秒后</p>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<p>{{ myText }}</p>
+		</div>
+		<script>
+			angular.module("myApp",[]).controller("myCtrl",function($scope,$timeout){
+				$scope.myText="HTML Editor";
+				$timeout(function(){
+					$scope.myText = "hrasfas";
+				},2000)
+			})
+		</script>
+	</body>
+</html>

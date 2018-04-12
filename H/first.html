@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app>
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<label>Name:</label>
+			<input type="text" ng-model="yourName" placeholder="Enter a name here"/>
+			<hr />
+			<h1>hello {{yourName}}!</h1>
+		</div>
+		<hr />
+		<div>
+			<p>在输入框中尝试输入:</p>
+			<p>姓名:<input type="text" ng-model="skills"/></p>
+			<p ng-bind="skills"></p>
+		</div>
+		<hr />
+		<div ng-init="firstName='john'">
+			<p>姓名为:<span ng-bind="firstName"></span></p>
+			<p>ming:{{firstName}}</p>
+			<p>{{5+5}}</p>
+		</div>
+		<hr />
+		<div ng-init="fee=10;number=5">
+			<p>总价:  {{fee * number}}</p>
+			<p>总价: <span ng-bind="fee*number"></span> </p>
+		</div>
+		<hr />
+		<div ng-init="student={age:10,si:8}">
+			<p>{{student.age}}</p>
+		</div>
+		<hr />
+		<div ng-init="nums=[1,2,4,5,6,9]">
+			<ul>
+				<li ng-repeat="x in nums">
+					{{x}}
+				</li>
+			</ul>
+		</div>
+		<hr />
+		<div ng-init="computer=[{name:'DELL',addr:'china'},
+		{name:'Lenvon',addr:'shanghai'},
+		{name:'apple',addr:'usa'}]">
+			<ul>
+				<li ng-repeat="x in computer">
+					{{x.name+","+x.addr}}
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>
+

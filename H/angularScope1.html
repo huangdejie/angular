@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8">
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<p> {{lastName}} 家族成员</p>
+			<ul>
+				<li ng-repeat="x in names">
+					{{x}}  {{lastName}}
+				</li>
+			</ul>
+		</div>
+		<script>
+			var app = angular.module('myApp',[]);
+			
+			app.controller('myCtrl',function($scope){
+				$scope.names=["joe","qiao","allay"];
+				$scope.lastName="Refresddd";
+			});
+				
+		</script>
+	</body>
+</html>

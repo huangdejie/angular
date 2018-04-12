@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<p>{{myUrl}}</p>
+		</div>
+		<script>
+			angular.module("myApp",[]).controller("myCtrl",function($scope,$http){
+				$http.get('welcome.htm').then(function(response){
+					$scope.myUrl = response.data;
+				})
+			});
+		</script>
+	</body>
+</html>

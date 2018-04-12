@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="invoicel">
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<script src="E:\HBuilerProject\H\js\invoicel.js></script>
+		<meta charset="UTF-8">
+		<title>币种</title>
+	</head>
+	<body>
+		<div ng-controller="InvoiceController">
+			<b>订单:</b>
+			<div>
+				数量:<input type="number" ng-model="invoicel.qty" required>
+			</div>
+			<div>
+				单价:<input type="number" ng-model="invoicel.cost" required>
+				<select ng-model="invoicel.inCurr">
+					<option ng-repeat="c in invoice.currencies"></option>
+				</select>
+			</div> 
+			<div>总价:</div>
+			<span ng-repeat="c in invoice.currencies"></span>
+			<button class="btn" ng-click="invoicel.pay">支付</button>
+		</div>
+	</body>
+</html>

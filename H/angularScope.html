@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div ng-app="youApp" ng-controller="youCtrl">
+			<input ng-model="name" />
+			<p>{{name}}</p>
+		</div>
+		<script>
+			
+			
+			var yoApp = angular.module('youApp',[]);
+			
+			yoApp.controller('youCtrl',function($scope){
+				$scope.name = "hello";
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<input type="number" ng-model="cost" />
+			<input type="number" ng-model="numb" />
+			<p>总价 = {{ (cost * numb) | currency:'￥' }}</p>
+			
+		</div>
+		<script>
+			angular.module("myApp",[]).controller("myCtrl",function($scope){
+				$scope.cost=3;
+				$scope.numb=4;
+			});
+		</script>
+	</body>
+</html>

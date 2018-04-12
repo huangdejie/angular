@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="//cdn.bootcss.com/angular.js/1.5.8/angular.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="myCtrl">
+			<ul>
+				<li ng-repeat="x in names | orderBy:'country'">
+					{{ x.name+','+x.country }}
+				</li>
+			</ul>
+		</div>
+		<script>
+			var app = angular.module('myApp', []);
+			app.controller('myCtrl', function($scope) {
+			    $scope.names=[{name:'张三',country:'China'},
+			    {name:'裂杯',country:'eiguo'},
+			    {name:'私服',country:'jianada'},
+			    {name:'lisi',country:'Australia'}];
+			});
+		</script>
+	</body>
+</html>

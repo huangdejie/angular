@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="js/online/angular.min.js"></script>
+		<script src="js/online/angular-route.min.js"></script>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			angular.module("ngRouteExample",['ngRoute'])
+			.controller("HomeController",function($scope,$route){
+				$scope.$route=$route;
+			})
+			.controller("AboutController",function($scope,$route){
+				$scope.$route=$route;
+			})
+			.config(function($routeProvider){
+				$routeProvider.
+				when('/home',{
+					templateUrl:'embedded.home.html',
+					controller:'HomeController'
+				})
+				.when('/about',{
+					templateUrl:'embedded.about.html',
+					controller:'AboutController'
+				})
+				.otherwise({
+					redirectTo:'/about'
+				})
+				;
+			})
+		</script>
+	</head>
+	<body ng-app="ngRouteExample" class="ng-scope">
+		<script type="text/ng-template" id="embedded.home.html">
+			<h1>Homes</h1>
+		</script>
+		<script type="text/ng-template" id="embedded.about.html">
+			<h1>About</h1>
+		</script>
+		<div>
+			<div id="navigation">
+				<a href="#/home">home</a>
+				<a href="#/about">about</a>
+			</div>
+			<div ng-view=""></div>
+		</div>
+		
+	</body>
+</html>
